@@ -1,19 +1,17 @@
-
 import ReactDOM from 'react-dom';
-
-setInterval(()=>
+//component
+function Clock({locale})
 {
-    const element = (
-        <h1 className="heading">
+    // element of this clock
+    return ( <h1 className="heading">
         <span className="text">
-            The time is {new Date().toLocaleTimeString()}
+            The time is {new Date().toLocaleTimeString(locale)}
         </span>
-        </h1>
-    );
-    ReactDOM.render(element,document.getElementById('root'))
-},100);
+    </h1>
+);
+    // element of this clockend
+}
+// component end
+ ReactDOM.render(<Clock locale="bn-BD"/>,document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
