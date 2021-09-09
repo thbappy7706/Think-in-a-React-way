@@ -47,7 +47,7 @@ class Clock extends React.Component
                     <br/>
                     <span> এখন সময় :  {date.toLocaleTimeString(locale)}</span>
                 </h1>
-                   <Button change={this.handleClick} locale="en-==US">
+                   <Button change={this.handleClick} locale="en-US">
                         Click Here
                    </Button>
             </div>
