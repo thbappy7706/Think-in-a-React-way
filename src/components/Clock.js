@@ -3,7 +3,10 @@ import "../index.css";
 //component
 class Clock extends React.Component
 {
-    state={date:new Date()} //because here no props will be used or changed
+    state={
+        date:new Date(),
+        locale:'bn-BD'
+    } //because here no props will be used or changed
 
     // constructor(props) {
     //     super(props);
@@ -27,18 +30,28 @@ class Clock extends React.Component
         });
     }
 
+    handleClick()
+    {
+       this.setState({
+           locale:'en-US',
+       })
+    }
+
     render()
     {
+        const {date,locale}=this.state;
         return (
-            // <h1 className="heading">
-            //    <span className="text">
-            //    Time is {this.state.date.toLocaleTimeString(this.props.locale)}
-            //    </span>
-            // </h1>
+            <div>
+                <h1> স্বাগতম,তানভীর হোসেন বাপ্পী
+                    <br/>
+                    <span> এখন সময় :  {date.toLocaleTimeString(locale)}</span>
+                </h1>
 
-            <h1> স্বাগতম,তানভীর হোসেন বাপ্পী
-                <br/>
-                <span> এখন সময় :  {this.state.date.toLocaleTimeString(this.props.locale)}</span></h1>
+                <button type="button" onClick={this.handleClick}>
+                    Click Here
+                </button>
+            </div>
+
         )
     }
 }

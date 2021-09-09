@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    const javascript = {
+        name: "Javascript",
+        libraries: ["Agnular","Vue","React"],
+        frameworks: ["Mithril","Node.js","Polymer"],
+        //vanila
+        printLibraries: function (){
+            this.libraries.forEach(function (library){
+                console.log(`${this.name} loves ${library}`)
+            }.bind(this));
+
+        },
+
+        printFrameworks: function ()
+        {
+            this.frameworks.forEach((fw)=>{
+                console.log(`${this.name} loves ${fw}`)
+            });
+        },
+    };
+
+    javascript.printLibraries()
+    javascript.printFrameworks()
+</script>
+</body>
+</html>
