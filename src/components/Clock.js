@@ -6,7 +6,9 @@ class Clock extends React.Component
 {
     state={
         date:new Date(),
-        locale:'bn-BD'
+        greetings:'Welcome,Tanvir Hossen Bappy',
+        rightNow:'Now The Time is',
+        locale:'en-US'
     } //because here no props will be used or changed
 
     // constructor(props) {
@@ -39,17 +41,51 @@ class Clock extends React.Component
 
     render()
     {
-        console.log("clock")
         const {date,locale}=this.state;
+        let button;
+        let greetings;
+        let rightNow;
+        if (locale==='bn-BD')
+        {
+            greetings ='স্বাগতম,তানভীর হোসেন বাপ্পী';
+        }
+        else
+        {
+            greetings ='Welcome,Tanvir Hossen Bappy' ;
+        }
+
+        if (locale==='bn-BD')
+        {
+            rightNow= 'এখন সময়';
+        }
+        else
+        {
+            rightNow='Now The Time is';
+        }
+
+
+        if (locale==='bn-BD')
+        {
+            button= (
+                <Button change={this.handleClick} locale="en-US">
+                    Click Here
+                </Button>
+            );
+        }else
+        {
+            button= (
+                <Button change={this.handleClick} locale="bn-BD">
+                    Click Here
+                </Button>
+            );
+        }
         return (
             <div>
-                <h1> স্বাগতম,তানভীর হোসেন বাপ্পী
+                <h1> {greetings.toLocaleString(locale)}
                     <br/>
-                    <span> এখন সময় :  {date.toLocaleTimeString(locale)}</span>
+                    <span> {rightNow.toLocaleString(locale)} :  {date.toLocaleTimeString(locale)}</span>
                 </h1>
-                   <Button change={this.handleClick} locale="en-US">
-                        Click Here
-                   </Button>
+                {button}
             </div>
 
         )
